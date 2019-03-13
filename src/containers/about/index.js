@@ -1,9 +1,11 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const About = () => (
-  <div>
-    <h1>About Page</h1>
-    <p>Don't you want to sign up?</p>
+  <div className='container'>
+    <h2>Success!</h2>
+    <p>You have successfully signed up.</p>
+    <Link to="/">Back to Signup Page Home</Link>
   </div>
 )
 
