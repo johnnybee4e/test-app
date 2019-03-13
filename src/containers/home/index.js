@@ -3,21 +3,49 @@ import { push } from 'connected-react-router'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import {
-  increment,
-  incrementAsync,
-  decrement,
-  decrementAsync
-} from '../../modules/counter'
+  handleChange,
+  handlePWChange
+} from '../../modules/signup'
 
 const Home = props => (
   <div>
     <h1>Sign Up</h1>
 
     <form>
-      <input type='input' placeholder='Username'/>
-      <input type='email' placeholder='Email'/>
-      <input type='password' placeholder='Password'/>
-      <button type='submit' disabled={false}>Sign Up!</button>
+    <label htmlFor='username'>Username:</label>
+      <input
+        type="input"
+        name="username"
+        placeholder="Username"
+        onChange={props.handleChange}
+        autoFocus
+        required
+      />
+      <label htmlFor='email'>Email Address:</label>
+      <input
+        type="email"
+        name="email"
+        placeholder="Email"
+        onChange={props.handleChange}
+        required
+      />
+      <label htmlFor='password'>Password:</label>
+      <input
+        type="password"
+        name="password"
+        placeholder="Password"
+        onChange={props.handlePWChange}
+        onFocus={() => {
+            console.log('lookie here!')
+           }
+          }
+        required
+      />
+      <button
+        type="submit"
+        disabled={!props.isVaildPassword}>
+        Sign Up!
+      </button>
     </form>
 
     <p>
@@ -28,20 +56,23 @@ const Home = props => (
   </div>
 )
 
-const mapStateToProps = ({ counter }) => ({
-  count: counter.count,
-  isIncrementing: counter.isIncrementing,
-  isDecrementing: counter.isDecrementing
+
+
+const mapStateToProps = ({ signup }) => ({
+  username: signup.username,
+  email: signup.email,
+  password: signup.password,
+  isValidEmail: signup.isValidEmail,
+  isVaildPassword: signup.isVaildPassword,
+  errors: signup.errors
 })
 
 const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
-      increment,
-      incrementAsync,
-      decrement,
-      decrementAsync,
-      changePage: () => push('/about-us')
+      handleChange,
+      handlePWChange,
+      changePage: () => push('/about-us'),
     },
     dispatch
   )
