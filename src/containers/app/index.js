@@ -1,18 +1,16 @@
 import React from 'react'
-import { Route, Link } from 'react-router-dom'
+import { Route } from 'react-router-dom'
 import Home from '../home'
-import About from '../about'
+import Success from '../success'
 
 const App = () => (
-  <div>
+  <div className='app'>
     <header>
-      <Link to="/">Home</Link>
-      <Link to="/about-us">About</Link>
+      <h1>React/Redux Signup Test App</h1>
     </header>
-
     <main>
       <Route exact path="/" component={Home} />
-      <Route exact path="/about-us" component={About} />
+      <Route exact path="/success" component={Success} />
     </main>
   </div>
 )

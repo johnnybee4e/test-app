@@ -18,7 +18,7 @@ const isDisabled = (bool1, bool2) => bool1 && bool2 ? false : true
 
 const Home = props => (
   <div className="container">
-    <h1>Sign Up</h1>
+    <h2>Sign Up</h2>
     <form className="form-container">
       <div className="input-container">
         <label htmlFor="username">Username:</label>
@@ -90,7 +90,7 @@ const mapDispatchToProps = dispatch =>
       handleChange,
       handlePWChange,
       handleEmailChange,
-      changePage: () => push('/about-us')
+      changePage: () => push('/success')
     },
     dispatch
   )
