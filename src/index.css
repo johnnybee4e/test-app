@@ -14,3 +14,35 @@ body {
 button:disabled {
   opacity: 0.5;
 }
+
+.container, .form-container {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-container {
+  width: 30vw;
+}
+
+.input-container {
+  width: 70%;
+  display: flex;
+  /* align-items: center; */
+  justify-content: space-between;
+  padding-bottom: 1rem;
+}
+
+.modal {
+  background-color: #d8d9d8;
+  border: 1px solid red;
+}
+
+.error{
+  border: 1px solid red;
+}
+
+.valid {
+  border: 1px solid green;
+}
