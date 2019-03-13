@@ -2,6 +2,7 @@ import React from 'react'
 import { push } from 'connected-react-router'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
+import Modal from '../modal'
 import {
   handleChange,
   handlePWChange
@@ -35,12 +36,12 @@ const Home = props => (
         name="password"
         placeholder="Password"
         onChange={props.handlePWChange}
-        onFocus={() => {
-            console.log('lookie here!')
-           }
-          }
         required
       />
+      
+      {/* If there are errors, render the modal component with the errors */}
+      {props.errors.length ? <Modal errors={props.errors} /> : null}
+
       <button
         type="submit"
         disabled={!props.isVaildPassword}>
