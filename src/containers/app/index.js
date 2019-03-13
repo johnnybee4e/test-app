@@ -1,7 +1,7 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
 import Home from '../home'
-import About from '../about'
+import Success from '../success'
 
 const App = () => (
   <div className='app'>
@@ -10,7 +10,7 @@ const App = () => (
     </header>
     <main>
       <Route exact path="/" component={Home} />
-      <Route exact path="/about-us" component={About} />
+      <Route exact path="/success" component={Success} />
     </main>
   </div>
 )

@@ -90,7 +90,7 @@ const mapDispatchToProps = dispatch =>
       handleChange,
       handlePWChange,
       handleEmailChange,
-      changePage: () => push('/about-us')
+      changePage: () => push('/success')
     },
     dispatch
   )

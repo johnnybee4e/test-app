@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const About = () => (
+const Success = () => (
   <div className='container'>
     <h2>Success!</h2>
     <p>You have successfully signed up.</p>
@@ -9,4 +9,4 @@ const About = () => (
   </div>
 )
 
-export default About
+export default Success
