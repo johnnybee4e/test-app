@@ -17,7 +17,7 @@ const Home = props => (
       <input type='input' placeholder='Username'/>
       <input type='email' placeholder='Email'/>
       <input type='password' placeholder='Password'/>
-      <button type='submit'>Sign Up!</button>
+      <button type='submit' disabled={false}>Sign Up!</button>
     </form>
 
     <p>
