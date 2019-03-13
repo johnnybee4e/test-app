@@ -3,9 +3,8 @@ import { push } from 'connected-react-router'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import {
-  CHANGE_INPUT_FIELD,
-  SUBMIT_REQUEST,
-  handleChange
+  handleChange,
+  handlePWChange
 } from '../../modules/signup'
 
 const Home = props => (
@@ -13,27 +12,38 @@ const Home = props => (
     <h1>Sign Up</h1>
 
     <form>
+    <label htmlFor='username'>Username:</label>
       <input
         type="input"
         name="username"
         placeholder="Username"
         onChange={props.handleChange}
+        autoFocus
+        required
       />
+      <label htmlFor='email'>Email Address:</label>
       <input
         type="email"
         name="email"
         placeholder="Email"
         onChange={props.handleChange}
+        required
       />
+      <label htmlFor='password'>Password:</label>
       <input
         type="password"
         name="password"
         placeholder="Password"
-        onChange={props.handleChange}
+        onChange={props.handlePWChange}
+        onFocus={() => {
+            console.log('lookie here!')
+           }
+          }
+        required
       />
       <button
         type="submit"
-        disabled={!props.isValidEmail && !props.isVaildPassword}>
+        disabled={!props.isVaildPassword}>
         Sign Up!
       </button>
     </form>
@@ -43,27 +53,26 @@ const Home = props => (
         Go to about page via redux
       </button>
     </p>
-    {console.log('state username:', props.username)}
-    {console.log('state email:', props.email)}
-    {console.log('state password:', props.password)}
   </div>
 )
+
+
 
 const mapStateToProps = ({ signup }) => ({
   username: signup.username,
   email: signup.email,
   password: signup.password,
   isValidEmail: signup.isValidEmail,
-  isVaildPassword: signup.isVaildPassword
+  isVaildPassword: signup.isVaildPassword,
+  errors: signup.errors
 })
 
 const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
-      CHANGE_INPUT_FIELD,
-      SUBMIT_REQUEST,
       handleChange,
-      changePage: () => push('/about-us')
+      handlePWChange,
+      changePage: () => push('/about-us'),
     },
     dispatch
   )
