@@ -6,7 +6,7 @@ import React from 'react'
   until the user has met all requirements
 */
 const Modal = props => (
-  <ul>
+  <ul className='modal'>
     {props.errors.map(message => {
       return <li key={message}>{message}</li>
     })}
