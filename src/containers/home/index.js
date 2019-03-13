@@ -11,22 +11,14 @@ import {
 
 const Home = props => (
   <div>
-    <h1>Home</h1>
-    <p>Count: {props.count}</p>
+    <h1>Sign Up</h1>
 
-    <p>
-      <button onClick={props.increment}>Increment</button>
-      <button onClick={props.incrementAsync} disabled={props.isIncrementing}>
-        Increment Async
-      </button>
-    </p>
-
-    <p>
-      <button onClick={props.decrement}>Decrement</button>
-      <button onClick={props.decrementAsync} disabled={props.isDecrementing}>
-        Decrement Async
-      </button>
-    </p>
+    <form>
+      <input type='input' placeholder='Username'/>
+      <input type='email' placeholder='Email'/>
+      <input type='password' placeholder='Password'/>
+      <button type='submit' disabled={false}>Sign Up!</button>
+    </form>
 
     <p>
       <button onClick={() => props.changePage()}>
